@@ -8,12 +8,8 @@
 		target = <&i2c1>;
 		__overlay__ {
 			status = "okay";
-			
-            sens1@12 {
-                compatible = "mz,sensor";
-                reg = <0x18>;
-            };
-           	aht10@56 {
+
+			aht10@56 {
 				compatible = "mz,aht10mz";
 				reg = <0x38>;
 			};

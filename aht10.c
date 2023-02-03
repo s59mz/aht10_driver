@@ -239,8 +239,8 @@ static int i2c_device_remove(struct i2c_client *client) {
 }
 
 static const struct of_device_id Of_device_id[] = {
-    { .compatible = "mz,aht10mz" },
-    {},
+	{ .compatible = "mz,aht10mz" },
+	{},
 };
 
 MODULE_DEVICE_TABLE(of, Of_device_id);
@@ -256,7 +256,7 @@ static struct i2c_driver I2c_driver = {
 	.remove = i2c_device_remove,
 };
 
-static int __init myi2c_init(void) {
+static int __init i2c_init(void) {
 	int ret;
 
 	DevNum = 0;
@@ -288,7 +288,7 @@ static int __init myi2c_init(void) {
 	return 0;
 }
 
-static void __exit myi2c_exit(void) {
+static void __exit i2c_exit(void) {
 
 	i2c_del_driver(&I2c_driver);
 	class_destroy(Class);
@@ -300,10 +300,10 @@ static void __exit myi2c_exit(void) {
 	pr_info("Driver %s exit\n", I2c_driver.driver.name);
 }
 
-module_init(myi2c_init);
-module_exit(myi2c_exit);
+module_init(i2c_init);
+module_exit(i2c_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Matjaz Zibert");
-MODULE_DESCRIPTION("Linux kernel module skeleton");
+MODULE_DESCRIPTION("Linux device driver for AHT10 temperature sensor");
 
