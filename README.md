@@ -1,7 +1,7 @@
 # aht10_driver
 Linux device driver for AHT10 temperature sensor
 
-### Compiling the module for Linux
+### Compiling the module for Linux (arm64)
 export ARCH=arm64
 
 export CROSS_COMPILE=aarch64-linux-gnu-
