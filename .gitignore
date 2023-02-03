@@ -97,4 +97,5 @@ x509.genkey
 #
 # For THIS_MODULE only
 #
+*.dtbo
 app/aht
