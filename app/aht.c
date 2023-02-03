@@ -28,10 +28,10 @@ int main(int argc, char **argv) {
 	}
 
 	if (!strcmp(argv[1], "1")) {
-		fd = open("/dev/aht10mz56", O_RDWR);
+		fd = open("/dev/aht10mz38", O_RDWR);
 	}
 	else if (!strcmp(argv[1], "2")) {
-		fd = open("/dev/aht10mz57", O_RDWR);
+		fd = open("/dev/aht10mz39", O_RDWR);
 	}
 	else {
 		printf("Use aht 1|2 read\n");
@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
 	temp = (float) ((200 * (float) ioctl_dev.temp) / 1048576.0) - 50;
 	humd = (100 * (float) ioctl_dev.humd) / 1048576;
 
-	printf("Temp: %f C,\tHumd: %f\n", temp, humd);
+	printf("Temp: %.3f'C,\tHumd: %f\n", temp, humd);
 	
 	return 0;
 }

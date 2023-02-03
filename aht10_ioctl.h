@@ -5,7 +5,7 @@
  *  Linux I2C device driver for AHT10 temperature sensor
  */
 
-#ifndef __AHT10_IOCTLMZ__HT
+#ifndef __AHT10_IOCTL_H_MZ__
 #define __AHT10_IOCTL_H_MZ__
 
 #include <linux/ioctl.h>

@@ -45,7 +45,7 @@ static int dev_open(struct inode * inode, struct file * fd) {
 
 	fd->private_data = mydev;
 
-	mz_info("Device: %s opened, addr=%d\n", client->name, client->addr);
+	mz_info("Device: %s opened, addr=0x%x\n", client->name, client->addr);
 
 	return 0;
 }
@@ -60,7 +60,7 @@ static int dev_close(struct inode * inode, struct file * fd) {
 
 	fd->private_data = NULL;
 
-	mz_info("Device: %s closed, addr=%d\n", client->name, client->addr);
+	mz_info("Device: %s closed, addr=0x%x\n", client->name, client->addr);
 
 	return 0;
 }
@@ -79,7 +79,7 @@ static long dev_ioctl(struct file *fd, unsigned int cmd, unsigned long arg)
 	client = mydev->client;
 	ioctl = &mydev->ioctl_dev;
 
-	mz_info("Device %s ioctl, addr=%d, cmd=%d\n", 
+	mz_info("Device %s ioctl, addr=0x%x, cmd=%d\n", 
 				client->name, client->addr, cmd);
 
 	switch(cmd) {
@@ -203,7 +203,7 @@ static int i2c_device_probe(struct i2c_client *client) {
 	cdev_add(&my_dev->cdev, my_dev->devt, 1);
 
 	device = device_create(Class, NULL, my_dev->devt, NULL, 
-					"%s%d", client->name, client->addr);
+					"%s%x", client->name, client->addr);
 
 	if (IS_ERR(device)) {
 		mz_bug();
@@ -214,7 +214,7 @@ static int i2c_device_probe(struct i2c_client *client) {
 
 	NumofDev ++;
 
-	pr_info("Device %s%d probed: addr=%d, flags=%d, irq=%d, devt=%d\n", 
+	pr_info("Device %s%x probed: addr=0x%x, flags=%d, irq=%d, devt=%d\n", 
 			client->name, client->addr, client->addr, 
 			client->flags, client->irq, my_dev->devt);
 
@@ -233,7 +233,7 @@ static int i2c_device_remove(struct i2c_client *client) {
 
 	NumofDev --;
 
-	pr_info("Device %s removed\n", client->name);
+	pr_info("Device %s%x removed\n", client->name, client->addr);
 
 	return 0;
 }

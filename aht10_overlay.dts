@@ -9,11 +9,11 @@
 		__overlay__ {
 			status = "okay";
 
-			aht10@56 {
+			aht10@38 {
 				compatible = "mz,aht10mz";
 				reg = <0x38>;
 			};
-			aht10@57 {
+			aht10@39 {
 				compatible = "mz,aht10mz";
 				reg = <0x39>;
 			};
