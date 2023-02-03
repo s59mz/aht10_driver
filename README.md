@@ -33,7 +33,7 @@ sudo ./aht
 ### NOTE
 The floating point temperature calculation is done in the demo app (in Linux User Space).
 
-# Remove the Module and Overlay
+### Remove the Module and Overlay
 sudo rmmod aht10
 
 sudo dtoverlay -d aht10_overlay
