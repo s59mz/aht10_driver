@@ -76,8 +76,8 @@ int main(int argc, char **argv) {
 	if (strcmp(argv[2], "read"))
 		return 0;
 
-	temp = (float) ((200 * (float) ioctl_dev.temp) / 1048576.0) - 50;
-	humd = (100 * (float) ioctl_dev.humd) / 1048576;
+	temp = convert_temp(ioctl_dev.temp);
+	humd = convert_humd(ioctl_dev.humd);
 
 	printf("Temp: %.3f'C,\tHumd: %f\n", temp, humd);
 	
